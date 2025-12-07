@@ -10,7 +10,7 @@ export default function RegisterScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [fullName, setFullName] = useState('');
-    const [role, setRole] = useState('patient'); // patient or doctor
+    const [role, setRole] = useState('doctor'); // Defaults to doctor for Admin App
     const [loading, setLoading] = useState(false);
 
     const handleRegister = async () => {
@@ -88,17 +88,8 @@ export default function RegisterScreen() {
                             left={<TextInput.Icon icon="lock" />}
                         />
 
-                        <Text style={[styles.label, { color: theme.colors.onSurfaceVariant }]}>I am a:</Text>
-                        <SegmentedButtons
-                            value={role}
-                            onValueChange={setRole}
-                            buttons={[
-                                { value: 'patient', label: 'Patient', icon: 'account' },
-                                { value: 'doctor', label: 'Doctor', icon: 'doctor' },
-                            ]}
-                            style={styles.segment}
-                            theme={{ colors: { secondaryContainer: theme.colors.primaryContainer, onSecondaryContainer: theme.colors.onPrimaryContainer } }}
-                        />
+                        {/* Role selection hidden for Admin App - Defaults to Doctor */}
+
 
                         <Button
                             mode="contained"
