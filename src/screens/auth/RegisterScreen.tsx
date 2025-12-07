@@ -28,6 +28,7 @@ export default function RegisterScreen() {
                     full_name: fullName,
                     role: role,
                 },
+                emailRedirectTo: typeof window !== 'undefined' ? window.location.origin : undefined,
             },
         });
 
